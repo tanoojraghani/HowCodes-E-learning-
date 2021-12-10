@@ -1,0 +1,231 @@
+{% load static %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+
+<head>
+
+  <style>
+    .profile_pic{
+      margin-left: 1em;
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="{% static 'img/icon1.png' %}" rel="icon">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'static_account/css/main.css' %}" rel="stylesheet">
+  <link href="{% static 'static_account/css/util.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Mentor - v4.4.0
+  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+  
+        <!-- <h1 class="logo me-auto"><a href="index.html">HowCodes</a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="/" class="logo me-auto"><img src="{% static 'img/icon.png' %}" alt="" class="img-fluid"></a>
+  
+        <nav id="navbar" class="navbar order-last order-lg-0" style="transform: translateX(-60px);">
+          <ul>
+            <!-- class="active" -->
+            <li><a  href="/">Home</a></li>
+            <li><a href="/general/about">About</a></li>
+            <li><a href="/course">Courses</a></li>
+            <!-- <li><a href="/general/trainers">Trainers</a></li>
+             <li><a href="/general/events">Events</a></li> -->
+            <li><a href="/general/forum">Disussion</a></li>
+            <li><a href="/general/contact">Contact</a></li>
+            {% if request.session.uid is None %}
+
+            <li><a href="/accounts/login" >Log in</a></li>
+
+            <li><a href="/accounts/signup" >Sign up</a></li>
+              
+              
+            
+
+
+
+
+
+    
+            <!-- <a href="/accounts/signup" class="get-started-btn">Sign Up!</a> -->
+    
+            {% else %}
+            <li class="dropdown"><a href="#"><a class="profile_pic" href="/">
+
+              <img src="{% static 'img/trainers/trainer-1.jpg' %}" class="img-fluid" style="border-radius: 50px;width:50px;" alt="">
+  
+            </a></a>
+              <ul>
+                <a href="/course/enrolled_courses">Enrolled Courses</a>
+
+                <a href="/course/progress">My Progress</a>
+
+                <a href="/course/lecture_details" >Teach</a>
+                <a href="/course/educator_added_courses">Uploaded Courses</a>
+                
+                <a href="/accounts/logout" >Log out</a>
+              </ul>
+            </li>
+
+    
+
+    
+    
+    
+            {% endif %}
+            
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+  
+
+  
+        
+      </div>
+    </header><!-- End Header -->
+
+
+
+{% block content %}
+
+
+
+{% endblock %}
+
+
+
+
+<footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Howcodes</h3>
+             <p>
+                Thadomal Shahani College of Engineering <br />
+                Bandra-West<br />
+                Mumbai, India <br /><br />
+                <strong>Phone:</strong> 022 2649 5808<br />
+                <strong>Email:</strong> tsec@tsecedu.org<br />
+              </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Blockchain</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Artifical Intellignce</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">DSA</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Inorder to keep up with latest courses at Howcodes please provide us with your email-id</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Howcodes</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
+          Designed by <a href="https://bootstrapmade.com/">Howcodes</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- Start of ChatBot (www.chatbot.com) code -->
+<script type="text/javascript">
+    window._be = window._be || {};
+    window.__be.id = '614e2126a6ff650007994dae';
+    (function() {
+        var be = document.createElement('script'); be.type = 'text/javascript'; be.async = true;
+        be.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.chatbot.com/widget/plugin.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(be, s);
+    })();
+</script>
+<!-- End of ChatBot code -->
+
+
+</body>
+
+</html>

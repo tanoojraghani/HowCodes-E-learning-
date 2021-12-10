@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png" class="img-fluid"
+            alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form>
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+  
+  
+            </div>
+  
+            <div class="divider d-flex align-items-center my-4">
+  
+            </div>
+  
+  
+  
+            <!-- <body onload="myFunction()"> -->
+  
+  <input type="file" id="myFile" multiple size="50" >
+  
+  <button onclick="uploadImage()">Submit</button>
+
+  <p id="demo"></p>
+  <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+  <script>
+		var firebaseConfig = {
+            apiKey: "AIzaSyA6VxOP79Wx1DxRWIq2BqU5PhUDcOjUOlw",
+            authDomain: "codestorm-hackathon.firebaseapp.com",
+            databaseURL: "",
+            projectId: "codestorm-hackathon",
+            storageBucket: "codestorm-hackathon.appspot.com",
+            messagingSenderId: "92375695203",
+            appId: "1:92375695203:web:b3b6b46a8b1947791e9d56",
+            measurementId: "G-RKP7W5G5ZR"
+		  };
+
+		  firebase.initializeApp(firebaseConfig)
+
+		  function uploadImage(){
+			
+			var storageRef = firebase.storage().ref();
+			var file = document.getElementById('files').files[0]
+			console.log(file.name)
+			var thisref = storageRef.child('Assignment/' + file.name).put(file);
+			
+			thisref.on('state_changed',function(snapshot){
+
+			},
+			function error(){
+			
+			},
+	
+			function(){
+				var downloadURL = thisref.snapshot.downloadURL;
+				document.getElementById('urls').value =  downloadURL
+
+			}
+		
+		);
+		}
+  </script>
+  
+  
+  
+  
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  
+  </section>
+
+{% endblock %}

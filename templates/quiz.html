@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <style>
+        .chat_container,.answer_container {
+            border: 2px solid #dedede;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+          }
+          
+          .darker {
+            border-color: #ccc;
+            background-color: #ddd;
+          }
+          
+          .answer_container,.chat_container::after {
+            content: "";
+            clear: both;
+            display: table;
+          }
+          
+          .chat_container img {
+            float: left;
+            max-width: 60px;
+            width: 100%;
+            margin-right: 20px;
+            border-radius: 50%;
+          }
+          
+          .chat_container img.right {
+            float: right;
+            margin-left: 20px;
+            margin-right:0;
+          }
+          
+          .time-right {
+            float: right;
+            color: #aaa;
+          }
+          
+          .time-left {
+            float: left;
+            color: #999;
+          }
+          
+          .quiz{
+              padding:2em;
+          }
+          
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="quiz">
+
+
+        <h2>Its Quiz Time</h2>
+
+
+        {% for i in quiz_list %}
+
+        <p>Question: {{i.Question}}</p>
+        <div class="chat_container">
+
+            
+            <p>Option 1: {{i.Option1}}</p>
+            <p>Option 2: {{i.Option2}}</p>
+            <p>Option 3: {{i.Option3}}</p>
+            <p>Option 4: {{i.Option4}}</p>
+            
+            
+        </div>
+        <button onclick="show_correct_answer()" class="answer">Show Answer</button>
+        
+        <div class="answer_container">
+            
+            <p>Correct Answer: {{i.Correct_Option}}</p>
+
+        </div>
+
+        {% endfor %}
+        
+        
+
+  
+    </div>
+
+    <script>
+        function show_correct_answer(){
+
+            var answer = document.getElementsByClassName('answer');
+
+            for (var i = 0; i < answer.length; i++) {
+            
+                
+            }
+        }
+    </script>
+</body>
+
+
+{% endblock %}

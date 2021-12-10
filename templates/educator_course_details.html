@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Course Details</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<!-- <link rel="icon" type="image/png" href="images/icons/favicon.ico"/> -->
+	  <link href="{% static 'img/icon1.png' %}" rel="icon">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+
+			<div class="wrap-login100">
+				<!-- <img src="{% static 'img/sco.jpg' %}" height="200vh" width=100% alt="..." > -->
+				
+				
+				<div class="container">
+				<h2 style="text-align:center"><span class="login100-form-title">Course Details</span></h2>
+			  <form method="POST" >
+
+				{% csrf_token %}
+
+				<input type="hidden" name="user_id" id="user_id" value="{{request.session.uid}}">
+			    <div class="form-group">
+			      <label for="course">Course Name</label>
+			      <input type="text" class="form-control" id="course" placeholder="Enter Course Name" name="course_name">
+			    </div>
+			    <div class="form-group">
+			      <label for="desc">Description</label>
+			      <input type="textarea" class="form-control" id="desc" placeholder="Enter Course Desciption" name="description_course">
+			    </div>
+
+				<div class="form-group">
+					<label for="desc">Overview</label>
+					<input type="textarea" class="form-control" id="desc" placeholder="Enter Course Desciption" name="overview_course">
+				  </div>
+
+					<div class="form-group">
+			      <label for="hrs">Duration</label>
+			      <input type="number" min='1' class="form-control" id="hrs" placeholder="Enter Course Duration In Hours" name="hrs">
+			    </div>
+					<div class="form-group">
+			      <label for="fee">Fee</label>
+			      <input type="number" min='100' class="form-control" id="fee" placeholder="Enter Course Fees In Rupees" name="fee">
+			    </div><br>
+					<div class="form-group">
+			      <label for="fee">Domain of Course</label><br>
+						<select class="form-control"  name="dom" id="dom">
+							<option value="Data Science">Data Science
+							<option value="Artifical Intellignce">Artifical Intellignce
+							<option value="Cloud Computing">Cloud Computing
+							<option value="Data Structures">Data Structures
+							<option value="Web Development">Web Development
+							<option value="Blockchain">Blockchain
+
+						</select>
+				</div><br>
+
+				
+				<div class="form-group">
+					<label for="fee">Difficulty of Course</label><br>
+					<input type="radio" id="beg" name="fav_language" value="beg">
+					  <label for="html">Beginner</label>
+					  <input type="radio" id="int" name="fav_language" value="int">
+					  <label for="css">Intermediate</label>
+					  <input type="radio" id="exp" name="fav_language" value="exp">
+					  <label for="javascript">Expert</label>
+						</div>
+
+			    <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+				<input type="submit" class="login100-form-btn" value="Submit">
+			  </form>
+
+			  
+			</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    
+    <script>
+    
+
+
+
+
+
+</script>
+</body>
+</html>

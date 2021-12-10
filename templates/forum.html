@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+
+
+<style>
+
+
+.chat_container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.chat_container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.chat_container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.chat_container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+
+.chat{
+    padding:2em;
+}
+
+#chat_box{
+    border: 2px solid black;
+    border-color: #ccc;
+    padding: 2px 7px;
+    width: calc(90% - 80px)
+}
+
+#send_button{
+    position: absolute;
+    border: 0;
+    font-size: 16px;
+    padding: 5px 20px 5px 20px;
+    background: #36b5b5;
+    color: #fff;
+    transition: 0.3s;
+    border-radius: 5px;
+    
+}
+</style>
+</head>
+
+
+    <div class="chat">
+
+
+        <h2>Course Forum</h2>
+
+
+        {% for i in message_list %}
+        <div class="chat_container">
+            
+        
+            <p>Username: {{i.Sender}}</p>
+            
+            <p>Message: {{i.Message}}</p>
+            
+            
+        </div>
+        {% endfor %}
+        
+        
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" id="chat_box" name="message">
+        
+            <input type="submit" id="send_button" value="Send">
+        </form>
+
+  
+    </div>
+
+
+{% endblock %}
+
+

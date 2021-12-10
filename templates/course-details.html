@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container"><br>
+        <h2>Course Details</h2>
+        <p>  </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Cource Details Section ======= -->
+    <section id="course-details" class="course-details">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-8">
+            <img src="{% static 'img/course-details.jpg' %}" class="img-fluid" alt="">
+
+            <h3>{{lecture_db.Course_Name}}</h3>
+            <p>{{lecture_db.Course_Description}}</p>
+          </div>
+          <div class="col-lg-4">
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Educator:</h5>
+              <p><a href="#">{{lecture_db.Educator_Name}}</a></p>
+            </div>
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Course Fee:</h5>
+              <p>₹{{lecture_db.Course_Fee}}</p>
+            </div>
+
+            <!-- <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Available Seats</h5>
+              <p>30</p>
+            </div> -->
+
+            <div class="course-info d-flex justify-content-between align-items-center">
+              <h5>Duration:</h5>
+              <p>{{lecture_db.Course_Duration}} Hrs</p>
+            </div>
+            <a href="/course/enroll?course_id={{lecture_db.Course_Id}}" class="get-started-btn">Enroll</a>
+
+            <a href="/course/forum?course_id={{lecture_db.Course_Id}}" class="get-started-btn">Forum</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cource Details Section -->
+
+    <!-- ======= Cource Details Tabs Section ======= -->
+    <section id="cource-details-tabs" class="cource-details-tabs">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-toggle="tab" href="#tab-1">Overview</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-2">Course Flow</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-3">Assignments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-4">Pop Quiz</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-5">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Overview of Course</h3>
+                    <h3>{{lecture_db.Course_Name}}</h3>
+                    <p>{{lecture_db.Course_Overview}}</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'img/course-details-tab-1.png' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="tab-pane active show" id="tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Course Flow</h3>
+
+                    {% for i in lecture_list %}
+
+                    <h4>Lecture: {{i.Lecture_Name}} </h4>
+
+                    <iframe width=auto height=auto src="https://www.youtube.com/embed/Rek0NWPCNOc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                    
+                    <br><br>
+
+                    <p>Details: {{i.Course_Description}}</p>
+                   
+                    <a href="/course/completed?course_id={{course_id}}&lecture_id={{i.Lecture_Id}}" class="get-started-btn">Completed</a>
+
+                    {% endfor %}
+                  
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'img/course-details-tab-2.png' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="tab-pane active show" id="tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
+                    <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
+                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'img/course-details-tab-3.png' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div> -->
+
+
+              <div class="tab-pane active show" id="tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <a href="/course/quiz?course_id={{course_id}}"><h3>Lets Take A Quiz</h3></a>
+                    
+
+
+                    
+                  
+                  
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="{% static 'img/course-details-tab-4.png' %}" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Cource Details Tabs Section -->
+</main><!-- End #main -->
+
+{% endblock %}
